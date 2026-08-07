@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> pom pom</title>
+    <style>
+        body {
+           background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* لمنع ظهور شريط التمرير */
+        }
+
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            z-index: -1; /* لوضع الفيديو خلف المحتوى */
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.8); /* خلفية نصف شفافة للمحتوى */
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1; /* لوضع المحتوى أمام الفيديو */
+        }
+
+        .portrait {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .ip-address, .location, .isp, .timezone, .coordinates, .server-status {
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <img src="https://i.pinimg.com/736x/5b/9b/fb/5b9bfb4ec29b0b529d2e10fc26076aee.jpg" alt="" class="portrait">
+        <h1 class="main-title">fucked by shongxbong </h1>
+        <p class="info">SERVER is down</p>
+        <p class="info"></p>
+        <p class="info">shong x bong is here</p>
+        <p class="ip-address">IP ADDRESS: 148.513.414.145</p>
+        <p class="location">LOCATION: Jerusalem, Jerusalem, IL</p>
+        <p class="isp">ISP: AS8100 "Bezeq" - THE ISRAEL TELECOMMUNICATION CORP. LTD.</p>
+        <p class="timezone">Timezone: Asia/Jerusalem</p>
+        <p class="coordinates">Coordinates: 31.7690, 35.2163</p>
+        <p class="server-status">SERVER IS down</p>
+    </div>
+
+</body>
+</html>
