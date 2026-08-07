@@ -57,7 +57,6 @@
 </head>
 <body>
 
-    <!-- تم إضافة خاصية muted و autoplay ومعالجة التشغيل عبر JavaScript لضمان أن المتصفح لن يمنعه -->
     <video autoplay loop muted playsinline id="bg-video" preload="auto">
         <source src="17c3175f-25c5-47c3-8ca8-a31d793d081f.mp4" type="video/mp4">
         متصفحك لا يدعم تشغيل الفيديو.
@@ -77,11 +76,10 @@
         <p class="server-status">SERVER IS down</p>
     </div>
 
-    <!-- كود بسيط يجبر المتصفح على تشغيل الفيديو تلقائياً حتى لو حاول حظره -->
     <script>
         const video = document.getElementById('bg-video');
         video.play().catch(error => {
-            console.log("Autoplay was prevented:", error);
+            console.log("Autoplay prevented:", error);
         });
     </script>
 
