@@ -17,6 +17,7 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            cursor: pointer; /* لإظهار إمكانية النقر في أي مكان لتشغيل الصوت */
         }
 
         #bg-video {
@@ -53,6 +54,13 @@
             font-size: 1em;
             margin-bottom: 5px;
         }
+
+        /* تنبيه بسيط للمستخدم لنقر الشاشة لتشغيل الصوت */
+        .audio-hint {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -62,8 +70,13 @@
         متصفحك لا يدعم تشغيل الفيديو.
     </video>
 
+    <audio id="bg-audio" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
     <div class="container">
-        <img src="https://i.pinimg.com/736x/7e/3d/6c/7e3d6ce1311755570a83e571710807b5.jpg" alt="" class="portrait">
+        <img src="https://i.pinimg.com/736x/5b/9b/fb/5b9bfb4ec29b0b529d2e10fc26076aee.jpg" alt="" class="portrait">
         <h1 class="main-title">fucked by shongxbong </h1>
         <p class="info">SERVER is down</p>
         <p class="info"></p>
@@ -74,12 +87,18 @@
         <p class="timezone">Timezone: Asia/Jerusalem</p>
         <p class="coordinates">Coordinates: 31.7690, 35.2163</p>
         <p class="server-status">SERVER IS down</p>
+        <p class="audio-hint">[ اضغط في أي مكان على الصفحة لتشغيل الصوت ]</p>
     </div>
 
     <script>
-        const video = document.getElementById('bg-video');
-        video.play().catch(error => {
-            console.log("Autoplay prevented:", error);
+        const audio = document.getElementById('bg-audio');
+
+        // المحاولة الأولى لتشغيل الصوت تلقائياً
+        audio.play().catch(() => {
+            // في حال منع المتصفح التشغيل التلقائي، سيتم تشغيله عند أول ضغطة للمستخدم على الصفحة
+            document.body.addEventListener('click', () => {
+                audio.play();
+            }, { once: true });
         });
     </script>
 
