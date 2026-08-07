@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> pom pom</title>
+    <title>pom pom</title>
     <style>
         body {
-           background-color: black;
+            background-color: black;
             color: white;
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden; /* لمنع ظهور شريط التمرير */
+            overflow: hidden;
         }
 
         #bg-video {
@@ -25,16 +25,19 @@
             bottom: 0;
             min-width: 100%; 
             min-height: 100%;
-            z-index: -1; /* لوضع الفيديو خلف المحتوى */
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
         }
 
         .container {
             width: 80%;
             max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.8); /* خلفية نصف شفافة للمحتوى */
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
-            z-index: 1; /* لوضع المحتوى أمام الفيديو */
+            z-index: 1;
         }
 
         .portrait {
@@ -44,16 +47,8 @@
             margin-bottom: 20px;
         }
 
-        .main-title {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .info {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
+        .main-title { font-size: 2em; margin-bottom: 10px; }
+        .info { font-size: 1.2em; margin-bottom: 10px; }
         .ip-address, .location, .isp, .timezone, .coordinates, .server-status {
             font-size: 1em;
             margin-bottom: 5px;
@@ -62,6 +57,11 @@
 </head>
 <body>
 
+    <!-- تم إضافة خاصية muted و autoplay ومعالجة التشغيل عبر JavaScript لضمان أن المتصفح لن يمنعه -->
+    <video autoplay loop muted playsinline id="bg-video" preload="auto">
+        <source src="17c3175f-25c5-47c3-8ca8-a31d793d081f.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+    </video>
 
     <div class="container">
         <img src="https://i.pinimg.com/736x/5b/9b/fb/5b9bfb4ec29b0b529d2e10fc26076aee.jpg" alt="" class="portrait">
@@ -76,6 +76,14 @@
         <p class="coordinates">Coordinates: 31.7690, 35.2163</p>
         <p class="server-status">SERVER IS down</p>
     </div>
+
+    <!-- كود بسيط يجبر المتصفح على تشغيل الفيديو تلقائياً حتى لو حاول حظره -->
+    <script>
+        const video = document.getElementById('bg-video');
+        video.play().catch(error => {
+            console.log("Autoplay was prevented:", error);
+        });
+    </script>
 
 </body>
 </html>
